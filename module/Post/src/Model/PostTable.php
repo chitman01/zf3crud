@@ -13,7 +13,12 @@
         }
 
         public function fetchAll(){
-            return $this->tableGateway->select()
+            $select = $this->tableGateway->getSql()->select(); 
+            $resultSet = $this->tableGateway->selectWith($select);
+            $resultSet->buffer();
+            //$resultSet->next();
+    
+            return $resultSet;
         }
     }
     

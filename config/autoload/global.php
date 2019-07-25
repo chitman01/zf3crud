@@ -12,5 +12,10 @@
  */
 
 return [
-    // ...
+    'db' => array(
+        'driver' => 'Pdo',
+        'dsn' => 'mysql:dbname=post;host=localhost;charset=utf8',
+        'username' => 'root',
+        'password' => '',
+    )
 ];

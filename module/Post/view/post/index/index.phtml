@@ -2,3 +2,35 @@
     <h1>Welcome to <span class="zf-green">Zend Framework</span></h1>
 
 </div>
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (count($posts) > 0) : ?>
+                <?php foreach($posts as $post):?>
+                    <tr></tr>
+                        <td><?php echo $post->getId(); ?></td>
+                        <td><?php echo $post->getTitle(); ?></td>
+                        <td><?php echo $post->getDescription(); ?></td>
+                        <td><?php echo $post->getCategory(); ?></td>
+                        <td><a href="#" class="label label-primary">View</a></td>
+                        <td><a href="#" class="label label-default">Update</a></td>
+                        <td><a href="#" class="label label-danger">Delete</a></td>
+                    </tr>
+                <?php endforeach;?>
+            <?php else : ?>
+                <tr>
+                    <td>No Records Founds!</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
