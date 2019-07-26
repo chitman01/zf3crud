@@ -1,0 +1,44 @@
+<?php
+    $title = 'Add New Post';
+    $this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$album_title = $form->get('title');
+$album_title->setAttribute('class', 'form-control');
+$album_title->setAttribute('placeholder', 'Album title');
+
+$album_description = $form->get('description');
+$album_description->setAttribute('class', 'form-control');
+$album_description->setAttribute('placeholder', 'description');
+
+$album_category = $form->get('category');
+$album_category->setAttribute('class', 'form-control');
+$album_category->setAttribute('placeholder', 'category');
+
+    $form->setAttribute('action',$this->url('post',['action' => 'add']));
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('id'));
+?>
+
+<br/><h4>title</h4>
+
+<?php
+    echo $this->formRow($form->get('title'));
+?>
+
+<br/><h4>description</h4>
+<?php
+    echo $this->formRow($form->get('description'));
+?>
+<br/><h4>category</h4>
+<?php
+    echo $this->formRow($form->get('category'));
+?>
+<br/>
+<?php
+    echo $this->formSubmit($form->get('submit'));
+?>

@@ -24,10 +24,10 @@ return [
                     ],
                 ],
             ],
-            'Post' => [
+            'post' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/Post[/:action]',
+                    'route'    => '/post[/:action[/:id]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
