@@ -28,7 +28,24 @@
                 'description' =>$post->getDescription(),
                 'category' =>$post->getCategory(),
             ];
+
+            if($post->getId()){
+                $this->tableGateway->update($data,[
+                    'id' => $post->getId()
+                ]);
+            }else {
+                $this->tableGateway->insert($data);
+            }
+
             return $this->tableGateway->insert($data);
         }
+
+        public function getPost($id){
+            $data = $this->tableGateway->select([
+                'id' => $id
+            ]);
+            return $data->current();
+        }
+    
     }
     

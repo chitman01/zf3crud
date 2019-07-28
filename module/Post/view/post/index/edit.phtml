@@ -1,1 +1,34 @@
-<h1>Edit</h1>
+<?php
+    $title = 'Edit Post';
+    $this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title);?> </h1>
+
+<?php
+    $form->setAttribute('action',$this->url('post',['action' => 'add']));
+    $form->prepare();
+?>
+
+<?php
+    echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('id'));
+?>
+<br/>
+<?php
+    echo $this->formRow($form->get('title'));
+?>
+<br/>
+<?php
+    echo $this->formRow($form->get('description'));
+?>
+<br/>
+<?php
+    echo $this->formRow($form->get('category'));
+?>
+<br/>
+<?php
+    echo $this->formRow($form->get('submit'));
+?>
+<div class="row">
+    <a href="<?php echo $this->basePath('/'); ?>" class="btn btn-primary">BACK</a>
+</div>
